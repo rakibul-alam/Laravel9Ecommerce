@@ -60,4 +60,10 @@ class LoginController extends Controller
         }
 
     }
+
+    //admin log in form
+
+    public function adminLogin(){
+        return view('auth.admin_login');
+    }
 }
