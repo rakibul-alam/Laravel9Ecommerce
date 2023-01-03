@@ -4,20 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
 
-class CategoryController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $data =DB::table('categories')->get();
-
-        return response()->json($data);
+        //
     }
 
     /**
@@ -84,5 +87,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function admin(){
+        return view('admin.home');
+    }
+
+    public function logout(){
+        return view('admin.logout');
     }
 }
